@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<!-- Develop By Worapat Ketteng [worapat.com]  -->
+
+<head>
+    <title>ทำภาพคาราโอเกะ - KARAOKE GENERATOR</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="keywords" content="ทำภาพ, ทำป้าย, คาราโอเกะ, ชั้นใต้ดิน, meme, karaoke, generator">
+    <meta name="description" content="ทำภาพคาราโอเกะผ่านเว็บไซต์ได้ง่ายๆ ไม่ต้องลงโปรแกรม และยังรองรับบนมือถืออีกด้วย">
+    <meta property="og:url" content="http://worapat.com/karaoke/" />
+    <meta property="og:title" content="ทำภาพคาราโอเกะ karaoke" />
+    <meta property="og:description" content="ทำภาพคาราโอเกะผ่านเว็บไซต์ได้ง่ายๆ ไม่ต้องลงโปรแกรม และยังรองรับบนมือถืออีกด้วย" />
+    <meta property="og:image" content="http://worapat.com/karaoke/karaoke.jpg" />
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="fonts/CSPraKasFD-Bold.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.js"></script>
+    <script type="text/javascript" src="js/karaoke-script-worapat.js"></script>
+    <style>
+    body {
+        font-family: 'CSPraKasFD-Bold';
+        margin: 30px 15px;
+    }
+
+    h1 {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        margin-bottom: 30px;
+    }
+
+    #main {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    #demo {
+        display: block;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    #canvasShow {
+        display: none;
+    }
+
+    #imageShow {
+        display: none;
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    #imageShow img {
+        max-width: 1024px;
+    }
+
+    #agianCanvas {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        display: none;
+        margin: 20px 0;
+    }
+
+    #saveCanvas {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        margin-top: 20px;
+    }
+
+    #main small a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .btn-file {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        margin: 30px 0;
+    }
+
+    .messages {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        display: none;
+        text-align: left;
+        width: 90%;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+
+    .alert {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    .alert strong {
+        color: red;
+    }
+
+    .ads {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 10px 0 30px 0;
+    }
+
+    .credit {
+        font-family: Tahoma, 'Geneva', sans-serif;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="main" align="center">
+        <h1>ทำภาพคาราโอเกะ</h1>
+        <h2>KARAOKE GENERATOR</h2>
+        <small>เว็บไซต์นี้เป็นเว็บไซต์ให้บริการทำภาพ<a href="../karaoke.1">คาราโอเกะ</a>ใส่เนื้อ<a href="../karaoke.1">เพลง</a> ที่กำลังเป็นที่นิยมอยู่ในขณะนี้ <br>เว็บไซต์นี้ไม่มีการเก็บรูป<a href="../karaoke.1">ภาพ</a>และข้อความของท่านบนเซิฟเวอร์</small>
+        <br>
+        <br>
+        <div id="canvasShow">
+            <canvas id="myCanvas"></canvas>
+        </div>
+        <img src="karaoke.jpg" alt="" id="demo">
+        <label class="btn btn-success btn-lg btn-file">
+            <span>เลือกรูปภาพ</span>
+            <input type="file" id="imageLoader" name="imageLoader" style="display: none;" accept="image/*">
+        </label>
+        <div class="messages row">
+            <div class="alert alert-wranning bg-warning fade in"><a href="../karaoke.1#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>ใช้ <strong>//</strong> เพื่อหยุดเนื้อเพลง</div>
+            <div class="form-group col-md-8">
+                <label for="input1">เนื้อเพลงภาษาไทย :</label>
+                <input type="text" class="form-control" id="input1" placeholder="คารา//โอเกะ">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputSize1">ขนาดตัวอักษร</label>
+                <select class="form-control" id="inputSize1">
+                    <option vlaue="6">6</option>
+                    <option vlaue="8">8</option>
+                    <option vlaue="9">9</option>
+                    <option vlaue="10">10</option>
+                    <option vlaue="11">11</option>
+                    <option vlaue="12">12</option>
+                    <option vlaue="14">14</option>
+                    <option vlaue="18">18</option>
+                    <option vlaue="24">24</option>
+                    <option vlaue="30">30</option>
+                    <option vlaue="36">36</option>
+                    <option vlaue="48" selected>48</option>
+                    <option vlaue="60">60</option>
+                    <option vlaue="72">72</option>
+                    <option vlaue="84">84</option>
+                    <option vlaue="96">96</option>
+                </select>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="input2">เนื้อเพลงภาษาอังกฤษ :</label>
+                <input type="text" class="form-control" id="input2" placeholder="KA-RA//-O-KE">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputSize2">ขนาดตัวอักษร</label>
+                <select class="form-control" id="inputSize2">
+                    <option vlaue="6">6</option>
+                    <option vlaue="8">8</option>
+                    <option vlaue="9">9</option>
+                    <option vlaue="10">10</option>
+                    <option vlaue="11">11</option>
+                    <option vlaue="12">12</option>
+                    <option vlaue="14">14</option>
+                    <option vlaue="18">18</option>
+                    <option vlaue="24">24</option>
+                    <option vlaue="30" selected>30</option>
+                    <option vlaue="36">36</option>
+                    <option vlaue="48">48</option>
+                    <option vlaue="60">60</option>
+                    <option vlaue="72">72</option>
+                    <option vlaue="84">84</option>
+                    <option vlaue="96">96</option>
+                </select>
+            </div>
+            <div class="form-group col-md-8">
+                <label for="input3">เครดิต :</label>
+                <input type="text" class="form-control" id="input3" placeholder="เว้นไว้เพื่อตัดเครดิต">
+            </div>
+            <div class="form-group col-md-12 text-center">
+                <button id="saveCanvas" type="button" class="btn btn-success btn-lg">ดาวน์โหลด</button>
+            </div>
+        </div>
+        <div id="imageShow"></div>
+        <button id="agianCanvas" type="button" class="btn btn-success btn-lg">ทำใหม่อีกครั้ง</button>
+        <p class="credit">สนับสนุนโดย <a href="../index.html" target="_blank">WORAPAT.COM</a> | <a href="http://doubleusolution.com/" target="_blank">DOUBLEUSOLUTION.COM</a>
+            <br>
+            <br>ขอขอบคุณ <a href="https://www.facebook.com/basementkaraoke/" target="_blank">คาราโอเกะชั้นใต้ดิน</a> | ฟอนต์ <a href="http://www.f0nt.com/release/cs-prakas/" target="_blank">CS PraKas (ประกาศ)</a> จาก <a href="http://www.f0nt.com/author/raveetavan/" target="_blank">CS@nok</a>
+            <br>
+            <br>
+            <a href="../diarytootsies/index.html" target="_blank">สร้างภาพล้อเลียนจากไดอารี่ตุ๊ดซี่ส์</a> | <a href="../karaoke.1" target="_blank">ทำภาพคาราโอเกะ</a>
+        </p>
+    </div>
+    <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-511a0e297cdcf02b"></script>
+
+</body>
+
+</html>

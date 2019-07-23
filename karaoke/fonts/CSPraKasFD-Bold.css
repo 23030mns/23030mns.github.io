@@ -1,0 +1,8 @@
+
+@font-face {
+  font-family: 'CSPraKasFD-Bold';
+  src: url('CSPraKasFD-Bold.eot@') format('embedded-opentype'),  url('CSPraKasFD-Bold.otf')  format('opentype'),
+	     url('CSPraKasFD-Bold.woff') format('woff'), url('CSPraKasFD-Bold.ttf')  format('truetype'), url('CSPraKasFD-Bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
