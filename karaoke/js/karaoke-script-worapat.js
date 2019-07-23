@@ -209,13 +209,13 @@ $(function() {
                 }
 
                 var text4 = new fabric.IText(dText3, {
-                    fontSize: 18,
+                    fontSize: 24,
                     fill: 'rgba(255,255,255,1)',
                     fontFamily: 'CSPraKasFD-Bold',
                     fontWeight: 'normal',
                     originX: 'left',
                     width: canvas.width,
-                    top: canvas.height - 5,
+                    top: canvas.height - 28,
                     left: 5,
                     lockMovementX: true,
                     lockMovementY: true,
