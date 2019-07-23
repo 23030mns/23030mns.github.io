@@ -215,7 +215,7 @@ $(function() {
                     fontWeight: 'normal',
                     originX: 'left',
                     width: canvas.width,
-                    top: canvas.height - 17,
+                    top: canvas.height - 5,
                     left: 5,
                     lockMovementX: true,
                     lockMovementY: true,
