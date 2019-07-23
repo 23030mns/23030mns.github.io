@@ -203,9 +203,9 @@ $(function() {
                 canvas.add(bgText4);
 
                 if ($("#input3").val()) {
-                    var dText3 = $("#input3").val("ทรงโจร");
+                    var dText3 = $("#input3").val("");
                 } else {
-                    var dText3 = "เว้นไว้เพื่อตัดเครดิต";
+                    var dText3 = "ทรงโจร";
                 }
 
                 var text4 = new fabric.IText(dText3, {
