@@ -209,7 +209,7 @@ $(function() {
                 }
 
                 var text4 = new fabric.IText(dText3, {
-                    fontSize: 26,
+                    fontSize: 18,
                     fill: 'rgba(255,255,255,1)',
                     fontFamily: 'CSPraKasFD-Bold',
                     fontWeight: 'normal',
