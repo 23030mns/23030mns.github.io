@@ -187,10 +187,10 @@ $(function() {
                 });
 
                 var bgText4 = new fabric.Rect({
-                    top: canvas.height - 22,
+                    top: canvas.height - 30,
                     left: 0,
                     width: canvas.width,
-                    height: 22,
+                    height: 30,
                     fill: '#00000',
                     lockMovementX: true,
                     lockMovementY: true,
